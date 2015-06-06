@@ -4,19 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose  =  require('mongoose');
-mongoose.connect('mongodb://person:test@ds041992.mongolab.com:41992/ips')
-var db = mongoose.connection;
-
-db.once('open', function (callback) {
-  console.log("db connected");
-});
+var mongoURL = process.env.MONGOLAB_URI || "mongodb://person:test@ds041992.mongolab.com:41992/ips";
+var collection = require('mongoskin').db(mongoURL).collection("test")
 
 var routes = require('./routes/index');
 
 var app = express();
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
