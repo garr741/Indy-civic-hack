@@ -18,7 +18,16 @@ router.post('/submitForm', function(req, res, next){
 	collection.insert(document, function(err, result){
 		if(err){console.log(err)};
 	});
-	res.status(200).send("");
+	res.status(200).send();
+});
+
+router.post('/search', function(req, res, next){
+	// change the "firstName" to be selected to whatever the filter-type is (req.body.filter-type)???
+	collection.find({ req.body.filterType: req.body.query }, function(err, result){
+		if (err){console.log(err)};
+		res.send(result);
+	});
+	res.status(204);
 });
 
 router.get('/admin', function(req, res, next) {
