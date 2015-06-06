@@ -11,8 +11,6 @@ $(document).ready(function(e){
   $("#search_button").click(function(){
     var query = $("#search_query").val()
     var filterType = $('.input-group #search_param').val()
-    console.log(fieldType);
-    console.log(query);
 
   });
 });
