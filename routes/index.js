@@ -6,4 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('home');
 });
 
+router.get('/admin', function(req, res, next) {
+  res.render('admin');
+});
+
+router.get('/teacher', function(req, res, next) {
+  res.render('teacher');
+});
+
+router.get('/apply', function(req, res, next) {
+  res.render('student');
+});
+
 module.exports = router;
