@@ -5,7 +5,7 @@ function StatusModel() {
 	self.birthday = ko.observable("");
 	self.loadData = function() {
 		$.getJSON('http://ip.jsontest.com/', function( data ) {
-
+			self.firstName('pizza');
 		});
 	}
 }
