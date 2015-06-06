@@ -18,7 +18,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
     <script>
-      $.material.init();
+    $.material.init();
     </script>
   </head>
   <body>
@@ -29,20 +29,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">IPS</a>
-            <a class="navbar-brand" href="/apply">Apply Now</a>
-            <a class="navbar-brand" href="/status">Application Status</a>
-            <a class="navbar-brand" href="/teacher">Teacher Recommendations</a>
+            <a class="navbar-brand" href="javascript:void(0)">IPS</a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <form class="navbar-form navbar-center">
+            <form class="navbar-form navbar-left">
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
             </form>
         </div>
     </div>
-    <h1>Hello There!</h1>
-    <h3> welcome to the online application manager for Indiana Public Schools Magnet Programs! From here, you can create a new application, update an existing one, check on the status of your application, and submit teacher recommendation forms. Please select from the navigation bar the option that applies to you.</h3>
-      	
-        /admin, /teacher, /apply
   </body>
+  <script>
+  	var status = new Status();
+  	ko.applyBindings(status);
+  </script>
 </html>
