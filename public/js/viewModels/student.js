@@ -20,6 +20,9 @@ function Student() {
 	self.onPageFour = ko.computed(function() {
 		return self.page() == 4;
 	}, this);
+	self.onPageFive = ko.computed(function() {
+		return self.page() == 5;
+	}, this);
 	self.startWizard = function() {
 		self.loadWizard(true);
 	}
