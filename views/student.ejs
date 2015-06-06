@@ -1,29 +1,28 @@
 <html>
-    <head>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
-        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
-        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
-        <script src="/bower_components/jquery/dist/jquery.js"></script>
-        <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
-        <script src="/bower_components/knockout/dist/knockout.js"></script>
-        <script src="/js/viewModels/search.js"></script>
-        <!-- jQuery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
-        <script>
-        $.material.init();
-        </script>
-    </head>
-
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/knockout/dist/knockout.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="/js/viewModels/student.js"></script>
+    <!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+    <script>
+    $.material.init();
+    </script>
+  </head>
     <body class="fuelux">
-        <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                 <span class="icon-bar"></span>
@@ -37,147 +36,68 @@
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
             </form>
         </div>
+<div class="wizard" data-initialize="wizard" id="myWizard">
+  <ul class="steps">
+    <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
+    <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
+    <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
+    <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
+  </ul>
+  <div class="actions">
+    <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
+    <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
+  </div>
+  <div class="step-content">
+    <!-- ko if: onPageZero -->
+    <div class="">
+      <h1>Welcome to the IPS magnet application!</h1>
+      <h1>Have you already starting your application?</h1>
+      <button type="button" class="btn btn-default" data-bind="click: function() { toPage(1); }">Yes</button>
+      <button type="button" class="btn btn-default" data-bind="click: function() { toPage(2); }">No</button>
     </div>
-
-    <div class="wizard" data-initialize="wizard" id="myWizard">
-        <ul class="steps">
-            <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
-            <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
-            <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
-            <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
-        </ul>
-        <div class="actions">
-            <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
-            <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
-        </div>
-        <div class="step-content">
-            <div class="step-pane active sample-pane alert" data-step="1">
-                <form class="form-horizontal">
-                    <fieldset>
-                    <legend></legend>
-                    <div class="form-group">
-                        <input class="form-control floating-label" id="focusedInput" type="text" placeholder="Write something to make the label float">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control floating-label" id="focusedInput" type="text" placeholder="First Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                        <div class="col-lg-10">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Checkbox
-                                </label>
-                            </div>
-                            <br>
-                            <div class="togglebutton">
-                                <label>
-                                    <input type="checkbox" checked=""> Toggle button
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputFile" class="col-lg-2 control-label">File</label>
-                        <div class="col-lg-10">
-                            <input type="text" readonly="" class="form-control floating-label" placeholder="Browse...">
-                            <input type="file" id="inputFile" multiple="">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-                        <div class="col-lg-10">
-                            <textarea class="form-control" rows="3" id="textArea"></textarea>
-                            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">Radios</label>
-                        <div class="col-lg-10">
-                            <div class="radio radio-primary">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Option one is this
-                                </label>
-                            </div>
-                            <div class="radio radio-primary">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                    Option two can be something else
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="select" class="col-lg-2 control-label">Selects</label>
-                        <div class="col-lg-10">
-                            <select class="form-control" id="select">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                            <br>
-                            <select multiple="" class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form> 
+    <!-- /ko -->
+    <!-- ko if: onPageOne -->
+    <div>
+      <h1>Welcome back!</h1>
+      <h1>We just need a couple details to login you back in:</h1>
+      <div class="input-group-lg">
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); }">Yes</button>
+      </div>
     </div>
-    <div class="step-pane sample-pane bg-info alert" data-step="2">
-      <h4>Choose Recipients</h4>
-      <p>Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard. </p>
+    <!-- /ko -->
+    <!-- ko if: onPageTwo -->
+    <div>
+      <h1>Cool, let's get started!</h1>
+      <h1>We just need a couple details to login you back in:</h1>
+      <div class="input-group-lg">
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); }">Yes</button>
+      </div>
     </div>
-    <div class="step-pane sample-pane bg-danger alert" data-step="3">
-      <h4>Design Template</h4>
-      <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify. </p>
+    <!-- /ko -->
+    <!-- ko if: onPageThree -->
+    <div>
+      <h1></h1>
+      <h1>First, we need some general details:</h1>
+      <div class="input-group-lg" style="width:500px">
+        <input type="text" class="form-control" placeholder="First Name">
+        <input type="text" class="form-control" placeholder="Last Name">
+        <input type="text" class="form-control" placeholder="Birthday">
+        <input type="text" class="form-control" placeholder="Gender">
+        <input type="text" class="form-control" placeholder="Ethnicity">
+        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(2); }">Yes</button>
+      </div>
     </div>
+    <!-- /ko -->
   </div>
 
 </div>
-	
-<!-- <div id="application">
-      <div class="form-control-wrapper">
-        <input type="text" class="form-control" data-bind="value: firstName">
-        <div class="floating-label">First Name</div>
-        <span class="material-input"></span>
-      </div>
-    <p>Student Information:
-	<p>Student Name
-		<p>fist name
-		<p>last name
-	<p>Student Address
-		<p>Street
-		<p>City
-		<p>State
-		<p>Zip
-	<p>Student Information
-		<p>Birth Date (date select)
-		<p>Gender (dropdown)
-		<p>Student has an IEP? (dropdown)
-	<p>Race/Ethnicity
-		<p>Ethnicity (dropdown)
-		<p>race (dropdown)
-    <p>Current Program
-	<p>Current School (dropdown)
-	<p>Grade (dropdown)
-  	</div> -->
-  </body>
   <script>
   	var student = new Student();
   	ko.applyBindings(student);
   </script>
+  </body>
 </html>
