@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('home');
 });
 
+router.post('/submitForm', function(req, res){
+	res.status(200).send(req.body.firstName);
+});
+
 router.get('/admin', function(req, res, next) {
   res.render('admin');
 });
