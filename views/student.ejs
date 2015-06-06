@@ -22,6 +22,21 @@
     </script>
   </head>
     <body class="fuelux">
+        <div class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">IPS</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <form class="navbar-form navbar-left">
+                <input type="text" class="form-control col-lg-8" placeholder="Search">
+            </form>
+        </div>
+    </div>
 <div class="wizard" data-initialize="wizard" id="myWizard">
   <ul class="steps">
     <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
@@ -37,7 +52,7 @@
     <div class="step-pane active sample-pane alert" data-step="1">
           <form class="form-horizontal">
         <fieldset>
-            <legend>Legend</legend>
+            <legend></legend>
         <div class="form-group">
             <input class="form-control floating-label" id="focusedInput" type="text" placeholder="Write something to make the label float">
         </div>
