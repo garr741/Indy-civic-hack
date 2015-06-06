@@ -49,14 +49,15 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     	<span id="search_concept">Filter by</span> <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#ID">ID</a></li>
-                      <li><a href="#NAME">Name</a></li>
-                      <li><a href="#BIRTHDAY">Birthday</a></li>
+                    <ul class="dropdown-menu" role="menu" data-bind="value:filterText">
+                      <li><a href="#id">ID</a></li>
+                      <li><a href="#firstName">First Name</a></li>
+                      <li><a href="#lastName">Last Name</a></li>
+                      <li><a href="#birthday">Birthday</a></li>
                     </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">
-                <input type="text" class="form-control" name="x" placeholder="Search term..." id="search_query">
+                <input type="text" data-bind="value:query"class="form-control" name="x" placeholder="Search term..." id="search_query">
                 <span class="input-group-btn">
                     <button data-bind="click: update" class="btn btn-default" type="button" id="search_button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>

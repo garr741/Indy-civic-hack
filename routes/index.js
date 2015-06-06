@@ -54,10 +54,19 @@ router.post('/search', function(req, res, next){
 
 
 function search(filterType,query,callback){
+  console.log(filterType)
+  console.log(query)
   var coll = require('mongoskin').db(mongoURL).collection("student")
-  coll.find({ filterType:query}).toArray(function(err,result){
+  if(filterType == "firstName"){
+  coll.find({ firstName:query}).toArray(function(err,result){
     callback(err,result);
   });
+} else if(filterType == "lastName"){
+  coll.find({ lastName:query}).toArray(function(err,result){
+    callback(err,result);
+  });
+
+}
 
 }
 
