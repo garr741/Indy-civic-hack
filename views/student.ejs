@@ -1,307 +1,304 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/knockout/dist/knockout.js"></script>
-    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
-    <script src="/js/viewModels/student.js"></script>
-    <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
-    <script>
-    $.material.init();
-    </script>
-  </head>
-  <body class="fuelux">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">IPS</a>
-        <a class="navbar-brand" href="/apply">Apply Now</a>
-        <a class="navbar-brand" href="/status">Application Status</a>
-        <a class="navbar-brand" href="/teacher">Teacher Recommendations</a>
-      </div>
-      <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <form class="navbar-form navbar-left">
-          <input type="text" class="form-control col-lg-8" placeholder="Search">
-        </form>
-      </div>
-    </div>
-    <!-- ko ifnot: loadWizard -->
-    <div id = "content">
-      <!-- ko if: onPageZero -->
-      <div>
-        <h1>Welcome to the IPS magnet application!</h1>
-        <h1>Have you already started your application?</h1>
-        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(1); }">Yes</button>
-        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); startWizard(); }">No</button>
-      </div>
-      <!-- /ko -->
-      <!-- ko if: onPageOne -->
-      <div>
-        <h1>Welcome back!</h1>
-        <h1>We just need a couple details to login you back in:</h1>
-        <div class="input-group-lg">
-          <input type="text" class="form-control" placeholder="First Name" >
-          <input type="text" class="form-control" placeholder="Last Name" >
-          <input type="text" class="form-control" placeholder="Birthday" >
-          <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); startWizard(); }">Login</button>
-        </div>
-      </div>
-      <!-- /ko -->
-    </div>
-    <!-- /ko -->
-<!-- ko if: loadWizard -->
-<div class="wizard" data-initialize="wizard" id="myWizard">
-  <ul class="steps">
-    <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
-    <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
-    <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
-    <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
-  </ul>
-  <div class="actions">
-    <div style="display:none;"><button id="prevButt" type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
-    <button type="button" class="btn btn-default btn-next" data-last="Complete" id="nextButt">Next<span class="glyphicon glyphicon-arrow-right"></span></button></div>
-  </div>
-  <div class="step-content">
-    <!-- ko if: onPageThree -->
-    <form class="form-horizontal">
-<fieldset>
-
-<!-- Form Name -->
-<legend>First, we need your student's details:</legend>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">First Name</label>
-  <div class="controls">
-    <input id="textinput" name="firstName" type="text" placeholder="Student's First Name" class=" form-control" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Last Name</label>
-  <div class="controls">
-    <input id="textinput" name="textinput" type="lastName" placeholder="Student's Last Name" class=" form-control" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="textinput">Birth Date</label>
-  <div class="controls">
-    <input id="textinput" name="birthDate" type="text" placeholder="Month/Date/Year" class=" form-control" required="">
-    <p class="help-block">Please format it as XX/XX/XXXX</p>
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="control-group">
-    <label class="control-label" for="Gender">Gender</label>
-    <div class="controls">
-        <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Gender">
-            <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
-                <span class="selected-label">Gender</span>
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li data-value="Male"><a href="#">Male</a></li>
-                <li data-value="Female"><a href="#">Female</a></li>
-            </ul>
-            <input class="hidden hidden-field" name="gender" readonly="readonly" aria-hidden="true" type="text">
-        </div>
-    </div>
-</div>
-
-<!-- Select Basic -->
-<div class="control-group">
-    <label class="control-label" for="Ethnicity">Ethnicity</label>
-    <div class="controls">
-        <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Ethnicity">
-            <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
-                <span class="selected-label">Ethnicity</span>
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li data-value="No, not Hispanic/Latino"><a href="#">No, not Hispanic/Latino</a></li>
-                <li data-value="Yes, Hispanic/Latino"><a href="#">Yes, Hispanic/Latino</a></li>
-            </ul>
-            <input class="hidden hidden-field" name="ethnicity" readonly="readonly" aria-hidden="true" type="text">
-        </div>
-    </div>
-</div>
-
-<!-- Select Basic -->
-<div class="control-group">
-    <label class="control-label" for="race">Race</label>
-    <div class="controls">
-        <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="race">
-            <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
-                <span class="selected-label">Race</span>
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li data-value="American Indian or Alaska Native"><a href="#">American Indian or Alaska Native</a></li>
-                <li data-value="Asian"><a href="#">Asian</a></li>
-                <li data-value="Black or African American"><a href="#">Black or African American</a></li>
-                <li data-value="Multiracial"><a href="#">Multiracial</a></li>
-                <li data-value="Native Hawaiian or other Pacific Islander"><a href="#">Native Hawaiian or other Pacific Islander</a></li>
-                <li data-value="White"><a href="#">White</a></li>
-            </ul>
-            <input class="hidden hidden-field" name="race" readonly="readonly" aria-hidden="true" type="text">
-        </div>
-    </div>
-</div>
-
-<!-- Button -->
-<div class="control-group">
-  <label class="control-label" for="singlebutton"></label>
-  <div class="controls">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary" data-bind="click: function() {toPage(5); }">Continue</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-</div>
-</div>
-<!-- /ko -->
-  <script>
-  	var student = new Student();
-  	ko.applyBindings(student);
-  </script>
-    <!-- ko if: loadWizard -->
-    <div class="wizard" data-initialize="wizard" id="myWizard">
-      <ul class="steps">
-        <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
-        <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
-        <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
-        <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
-      </ul>
-      <div class="actions">
-        <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
-        <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
-      </div>
-      <div class="step-content">
-        <!-- ko if: onPageThree -->
-        <form class="form-horizontal">
-          <fieldset>
-            <!-- Form Name -->
-            <legend>First, we need your student's details:</legend>
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="textinput">First Name</label>
-              <div class="controls">
-                <input id="textinput" name="firstName" type="text" placeholder="Student's First Name" class=" form-control" required="">
-              </div>
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/knockout/dist/knockout.js"></script>
+        <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
+        <script src="/js/viewModels/student.js"></script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+        <script>
+        $.material.init();
+        </script>
+    </head>
+    <body class="fuelux">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">IPS</a>
+                <a class="navbar-brand" href="/apply">Apply Now</a>
+                <a class="navbar-brand" href="/status">Application Status</a>
+                <a class="navbar-brand" href="/teacher">Teacher Recommendations</a>
             </div>
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="textinput">Last Name</label>
-              <div class="controls">
-                <input id="textinput" name="textinput" type="lastName" placeholder="Student's Last Name" class=" form-control" required="">
-              </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </form>
             </div>
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="textinput">Birth Date</label>
-              <div class="controls">
-                <input id="textinput" name="birthDate" type="text" placeholder="Month/Date/Year" class=" form-control" required="">
-                <p class="help-block">Please format it as XX/XX/XXXX</p>
-              </div>
+        </div>
+        <!-- ko ifnot: loadWizard -->
+        <div id = "content">
+            <!-- ko if: onPageZero -->
+            <div>
+                <h1>Welcome to the IPS magnet application!</h1>
+                <h1>Have you already started your application?</h1>
+                <button type="button" class="btn btn-default" data-bind="click: function() { toPage(1); }">Yes</button>
+                <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); startWizard(); }">No</button>
             </div>
-            <!-- Select Basic -->
-            <div class="control-group">
-              <label class="control-label" for="Gender">Gender</label>
-              <div class="controls">
-                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Gender">
-                  <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
-                  <span class="selected-label">Gender</span>
-                  <span class="caret"></span>
-                  <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li data-value="Male"><a href="#">Male</a></li>
-                    <li data-value="Female"><a href="#">Female</a></li>
-                  </ul>
-                  <input class="hidden hidden-field" name="gender" readonly="readonly" aria-hidden="true" type="text">
+            <!-- /ko -->
+            <!-- ko if: onPageOne -->
+            <div>
+                <h1>Welcome back!</h1>
+                <h1>We just need a couple details to login you back in:</h1>
+                <div class="input-group-lg">
+                    <input type="text" class="form-control" placeholder="First Name" >
+                    <input type="text" class="form-control" placeholder="Last Name" >
+                    <input type="text" class="form-control" placeholder="Birthday" >
+                    <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); startWizard(); }">Login</button>
                 </div>
-              </div>
             </div>
-            <!-- Select Basic -->
-            <div class="control-group">
-              <label class="control-label" for="Ethnicity">Ethnicity</label>
-              <div class="controls">
-                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Ethnicity">
-                  <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
-                  <span class="selected-label">Ethnicity</span>
-                  <span class="caret"></span>
-                  <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li data-value="No, not Hispanic/Latino"><a href="#">No, not Hispanic/Latino</a></li>
-                    <li data-value="Yes, Hispanic/Latino"><a href="#">Yes, Hispanic/Latino</a></li>
-                  </ul>
-                  <input class="hidden hidden-field" name="ethnicity" readonly="readonly" aria-hidden="true" type="text">
-                </div>
-              </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+        <!-- ko if: loadWizard -->
+        <div class="wizard" data-initialize="wizard" id="myWizard">
+            <ul class="steps">
+                <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
+                <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
+                <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
+                <li data-step="4" data-name="template"><span class="badge">4</span>Program Selection<span class="chevron"></span></li>
+            </ul>
+            <div class="actions">
+                <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
+                <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
             </div>
-            <!-- Select Basic -->
-            <div class="control-group">
-              <label class="control-label" for="race">Race</label>
-              <div class="controls">
-                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="race">
-                  <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
-                  <span class="selected-label">Race</span>
-                  <span class="caret"></span>
-                  <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li data-value="American Indian or Alaska Native"><a href="#">American Indian or Alaska Native</a></li>
-                    <li data-value="Asian"><a href="#">Asian</a></li>
-                    <li data-value="Black or African American"><a href="#">Black or African American</a></li>
-                    <li data-value="Multiracial"><a href="#">Multiracial</a></li>
-                    <li data-value="Native Hawaiian or other Pacific Islander"><a href="#">Native Hawaiian or other Pacific Islander</a></li>
-                    <li data-value="White"><a href="#">White</a></li>
-                  </ul>
-                  <input class="hidden hidden-field" name="race" readonly="readonly" aria-hidden="true" type="text">
-                </div>
-              </div>
+            <div class="step-content">
+                <!-- ko if: onPageThree -->
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>First, we need your student's details:</legend>
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <label class="control-label" for="textinput">First Name</label>
+                            <div class="controls">
+                                <input id="textinput" name="firstName" type="text" placeholder="Student's First Name" class=" form-control" required="">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <label class="control-label" for="textinput">Last Name</label>
+                            <div class="controls">
+                                <input id="textinput" name="lastName" type="text" placeholder="Student's Last Name" class=" form-control" required="">
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <label class="control-label" for="textinput">Birth Date</label>
+                            <div class="controls">
+                                <input id="textinput" name="birthDate" type="text" placeholder="Month/Date/Year" class=" form-control" required="">
+                                <p class="help-block">Please format it as XX/XX/XXXX</p>
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+                        <div class="control-group">
+                            <label class="control-label" for="Gender">Gender</label>
+                            <div class="controls">
+                                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Gender">
+                                    <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
+                                    <span class="selected-label">Gender</span>
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="Male"><a href="#">Male</a></li>
+                                        <li data-value="Female"><a href="#">Female</a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="gender" readonly="readonly" aria-hidden="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+                        <div class="control-group">
+                            <label class="control-label" for="Ethnicity">Ethnicity</label>
+                            <div class="controls">
+                                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Ethnicity">
+                                    <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
+                                    <span class="selected-label">Ethnicity</span>
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="No, not Hispanic/Latino"><a href="#">No, not Hispanic/Latino</a></li>
+                                        <li data-value="Yes, Hispanic/Latino"><a href="#">Yes, Hispanic/Latino</a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="ethnicity" readonly="readonly" aria-hidden="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+                        <div class="control-group">
+                            <label class="control-label" for="race">Race</label>
+                            <div class="controls">
+                                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="race">
+                                    <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
+                                    <span class="selected-label">Race</span>
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="American Indian or Alaska Native"><a href="#">American Indian or Alaska Native</a></li>
+                                        <li data-value="Asian"><a href="#">Asian</a></li>
+                                        <li data-value="Black or African American"><a href="#">Black or African American</a></li>
+                                        <li data-value="Multiracial"><a href="#">Multiracial</a></li>
+                                        <li data-value="Native Hawaiian or other Pacific Islander"><a href="#">Native Hawaiian or other Pacific Islander</a></li>
+                                        <li data-value="White"><a href="#">White</a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="race" readonly="readonly" aria-hidden="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="control-group">
+                            <label class="control-label" for="singlebutton"></label>
+                            <div class="controls">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary" data-bind="click: function() {toPage(4); }">Continue</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <!-- /ko -->
+                <!-- ko if: onPageFour -->
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <legend>Next, please enter your student's current schooling</legend>
+                        <!-- Select Basic -->
+                        <div class="control-group">
+                            <label class="control-label" for="currentSchool">Current School</label>
+                            <div class="controls">
+                                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="currentSchool">
+                                    <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
+                                    <span class="selected-label">Current School</span>
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="Not Applicable"><a href="#">Not Applicable</a></li>
+                                        <li data-value="Anna Brochhausen 88"><a href="#">Anna Brochhausen 88</a></li>
+                                        <li data-value="Arlington Woods 99"><a href="#">Arlington Woods 99</a></li>
+                                        <li data-value="Arsenal Technical High School"><a href="#">Arsenal Technical High School</a></li>
+                                        <li data-value="Broad Ripple Magnet High School"><a href="#">Broad Ripple Magnet High School</a></li>
+                                        <li data-value="Brookside 54"><a href="#">Brookside 54</a></li>
+                                        <li data-value="Carl Wilde 79"><a href="#">Carl Wilde 79</a></li>
+                                        <li data-value="Center for Inquiry 2"><a href="#">Center for Inquiry 2</a></li>
+                                        <li data-value="Center for Inquiry 27"><a href="#">Center for Inquiry 27</a></li>
+                                        <li data-value="Center for Inquiry 84"><a href="#">Center for Inquiry 84</a></li>
+                                        <li data-value="Charles W. Fairbanks 105"><a href="#">Charles W. Fairbanks 105</a></li>
+                                        <li data-value="Christian Park 82"><a href="#">Christian Park 82</a></li>
+                                        <li data-value="Clarence Farrington 61"><a href="#">Clarence Farrington 61</a></li>
+                                        <li data-value="Cold Spring School"><a href="#">Cold Spring School</a></li>
+                                        <li data-value="Crispus Attucks Medical Magnet High School"><a href="#">Crispus Attucks Medical Magnet High School</a></li>
+                                        <li data-value="Daniel Webster 46"><a href="#">Daniel Webster 46</a></li>
+                                        <li data-value="Elder W. Diggs 42"><a href="#">Elder W. Diggs 42</a></li>
+                                        <li data-value="Eleanor Skillen 34"><a href="#">Eleanor Skillen 34</a></li>
+                                        <li data-value="Eliza Blaker 55"><a href="#">Eliza Blaker 55</a></li>
+                                        <li data-value="Ernie Pyle 90"><a href="#">Ernie Pyle 90</a></li>
+                                        <li data-value="Floro Torrence 83"><a href="#">Floro Torrence 83</a></li>
+                                        <li data-value="Francis Bellamy 102"><a href="#">Francis Bellamy 102</a></li>
+                                        <li data-value="Francis Scott Key 103"><a href="#">Francis Scott Key 103</a></li>
+                                        <li data-value="Francis W. Parker 56"><a href="#">Francis W. Parker 56</a></li>
+                                        <li data-value="Gambold Preparatory Magnet High School"><a href="#">Gambold Preparatory Magnet High School</a></li>
+                                        <li data-value="George H. Fisher 93"><a href="#">George H. Fisher 93</a></li>
+                                        <li data-value="George S. Buck 94"><a href="#">George S. Buck 94</a></li>
+                                        <li data-value="George W. Carver 87"><a href="#">George W. Carver 87</a></li>
+                                        <li data-value="George W. Julian 57"><a href="#">George W. Julian 57</a></li>
+                                        <li data-value="George Washington Community High School"><a href="#">George Washington Community High School</a></li>
+                                        <li data-value="Harshman Magnet Middle School"><a href="#">Harshman Magnet Middle School</a></li>
+                                        <li data-value="IPS/Butler University Laboratory School 60"><a href="#">IPS/Butler University Laboratory School 60</a></li>
+                                        <li data-value="James A. Garfield 31"><a href="#">James A. Garfield 31</a></li>
+                                        <li data-value="James Russell Lowell 51"><a href="#">James Russell Lowell 51</a></li>
+                                        <li data-value="James W. Riley 43"><a href="#">James W. Riley 43</a></li>
+                                        <li data-value="John Marshall Community High School"><a href="#">John Marshall Community High School</a></li>
+                                        <li data-value="Jonathan Jennings 109"><a href="#">Jonathan Jennings 109</a></li>
+                                        <li data-value="Joyce Kilmer 69"><a href="#">Joyce Kilmer 69</a></li>
+                                        <li data-value="Key Learning Community"><a href="#">Key Learning Community</a></li>
+                                        <li data-value="Lew Wallace 107"><a href="#">Lew Wallace 107</a></li>
+                                        <li data-value="Louis B. Russell Jr. 48"><a href="#">Louis B. Russell Jr. 48</a></li>
+                                        <li data-value="Meredith Nicholson 96"><a href="#">Meredith Nicholson 96</a></li>
+                                        <li data-value="Nicholson Performing Arts 70"><a href="#">Nicholson Performing Arts 70</a></li>
+                                        <li data-value="Northwest Community High School"><a href="#">Northwest Community High School</a></li>
+                                        <li data-value="Paul I. Miller 114"><a href="#">Paul I. Miller 114</a></li>
+                                        <li data-value="Ralph W. Emerson 58"><a href="#">Ralph W. Emerson 58</a></li>
+                                        <li data-value="Raymond F. Brandes 65"><a href="#">Raymond F. Brandes 65</a></li>
+                                        <li data-value="Riverside 44"><a href="#">Riverside 44</a></li>
+                                        <li data-value="Robert L. Frost 106"><a href="#">Robert L. Frost 106</a></li>
+                                        <li data-value="Rousseau McClellan 91"><a href="#">Rousseau McClellan 91</a></li>
+                                        <li data-value="Shortridge Magnet High School"><a href="#">Shortridge Magnet High School</a></li>
+                                        <li data-value="Sidener Academy"><a href="#">Sidener Academy</a></li>
+                                        <li data-value="Stephen Foster 67"><a href="#">Stephen Foster 67</a></li>
+                                        <li data-value="SUPER School 19"><a href="#">SUPER School 19</a></li>
+                                        <li data-value="Theodore Potter 74"><a href="#">Theodore Potter 74</a></li>
+                                        <li data-value="Thomas D. Gregg 15"><a href="#">Thomas D. Gregg 15</a></li>
+                                        <li data-value="Washington Irving 14"><a href="#">Washington Irving 14</a></li>
+                                        <li data-value="Wendell Phillips 63"><a href="#">Wendell Phillips 63</a></li>
+                                        <li data-value="William McKinley 39"><a href="#">William McKinley 39</a></li>
+                                        <li data-value="William Penn 49"><a href="#">William Penn 49</a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="currentSchool" readonly="readonly" aria-hidden="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Select Basic -->
+                        <div class="control-group">
+                            <label class="control-label" for="currentGrade">Current Grade</label>
+                            <div class="controls">
+                                <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="currentGrade">
+                                    <button class="btn btn-default dropdown-toggle " data-toggle="dropdown" type="button">
+                                    <span class="selected-label">Current Grade</span>
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="Preschool"><a href="#">Preschool</a></li>
+                                        <li data-value="Kindergarten"><a href="#">Kindergarten</a></li>
+                                        <li data-value="1"><a href="#">1</a></li>
+                                        <li data-value="2"><a href="#">2</a></li>
+                                        <li data-value="3"><a href="#">3</a></li>
+                                        <li data-value="4"><a href="#">4</a></li>
+                                        <li data-value="5"><a href="#">5</a></li>
+                                        <li data-value="6"><a href="#">6</a></li>
+                                        <li data-value="7"><a href="#">7</a></li>
+                                        <li data-value="8"><a href="#">8</a></li>
+                                        <li data-value="9"><a href="#">9</a></li>
+                                        <li data-value="10"><a href="#">10</a></li>
+                                        <li data-value="11"><a href="#">11</a></li>
+                                        <li data-value="12"><a href="#">12</a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="currentGrade" readonly="readonly" aria-hidden="true" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="control-group">
+                            <label class="control-label" for="singlebutton"></label>
+                            <div class="controls">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary" data-bind="click: function() {toPage(5); }">Continue</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <!-- /ko -->
             </div>
-            <!-- Button -->
-            <div class="control-group">
-              <label class="control-label" for="singlebutton"></label>
-              <div class="controls">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary" data-bind="click: function() {toPage(5); }">Continue</button>
-              </div>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-    <!-- /ko -->
-    <script>
-    var student = new Student();
-    ko.applyBindings(student);
-    </script>
-  </body>
+        </div>
+        <!-- /ko -->
+        <script>
+        var student = new Student();
+        ko.applyBindings(student);
+        </script>
+    </body>
 </html>
