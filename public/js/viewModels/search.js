@@ -4,14 +4,16 @@ function Admin() {
 	self.filterText = ko.observable("");
 	self.data = ko.computed(function() {
 		return {
-			query: self.query(),
-			filterText: self.filterText()
+			//query: self.query(),
+			//filterType: self.filterText()
 		};
 	}, this);
-	self.students = ko.observableArray();
+	self.students = ko.observableArray([]);
 	self.update = function() {
-		$.post("http://localhost:5000/text", self.data, function(returnedData) {
+		console.log("dsfds");
+		$.post("/search", self.data(), function(returnedData) {
 			console.log(returnedData);
+			self.students(returnedData);
 		});
 	}
 }
