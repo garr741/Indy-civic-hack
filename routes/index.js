@@ -13,7 +13,26 @@ router.post('/submitForm', function(req, res, next){
 	var document = {
 		"firstName": req.body.firstName,
 		"lastName": req.body.lastName,
-		"id": req.body.id
+		"studentAddress": req.body.studentAddress,
+		"birthDate": req.body.birthDate
+		"street": req.body.street,
+		"city": req.body.city,
+		"state": req.body.state,
+		"zip": req.body.zip,
+		"race": req.body.race,
+		"ethnicity": req.body.ethnicity,
+		"studentHasIEP": req.body.studentHasIEP,
+		"currentGrade": req.body.currentGrade,
+		"currentSchool": req.body.currentSchool,
+		"parentLast": req.body.parentLast, 
+		"parentFirst": req.body.parentFirst,
+		"parentPhone": req.body.parentPhone,
+		"parentEmail": req.body.parentEmail,
+		"language": req.body.language,
+		"firstProgramChoice": req.body.firstProgramChoice,
+		"secondProgramChoice": req.body.secondProgramChoice,
+		"thirdProgramChoice": req.body.thirdProgramChoice,
+		"performingArtsConcentration": req.body.performingArtsConcentration
 	};
 	collection.insert(document, function(err, result){
 		if(err){console.log(err)};
@@ -23,10 +42,10 @@ router.post('/submitForm', function(req, res, next){
 
 router.post('/search', function(req, res, next){
 	// change the "firstName" to be selected to whatever the filter-type is (req.body.filter-type)???
-	collection.find({ req.body.filterType: req.body.query }, function(err, result){
-		if (err){console.log(err)};
-		res.send(result);
-	});
+	// collection.find({ req.body.filterType: req.body.query }, function(err, result){
+	// 	if (err){console.log(err)};
+	// 	res.send(result);
+	// });
 	res.status(204);
 });
 
