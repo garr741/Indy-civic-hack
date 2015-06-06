@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* submitForm */
-router.post('/submitForm', function(req, res){
+router.post('/submitForm', function(req, res, next){
 	var document = {
 		"firstName": req.body.firstName,
 		"lastName": req.body.lastName,
@@ -18,7 +18,7 @@ router.post('/submitForm', function(req, res){
 	collection.insert(document, function(err, result){
 		if(err){console.log(err)};
 	});
-  res.status(200);
+	res.status(200).send("");
 });
 
 router.get('/admin', function(req, res, next) {
