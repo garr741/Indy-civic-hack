@@ -1,12 +1,22 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
     <script src="/bower_components/knockout/dist/knockout.js"></script>
     <script src="/js/viewModels/student.js"></script>
+    <script>
+    $.material.init();
+    </script>
   </head>
   <body>
   	<div id="application">
-    apply
+      <div class="form-control-wrapper">
+        <input type="text" class="form-control" data-bind="value: firstName">
+        <div class="floating-label">First Name</div>
+        <span class="material-input"></span>
+      </div>
   	</div>
   </body>
   <script>
