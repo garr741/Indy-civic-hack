@@ -1,26 +1,27 @@
 <html>
-  <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
-    <script src="/bower_components/knockout/dist/knockout.js"></script>
-    <script src="/js/viewModels/search.js"></script>
-    <!-- jQuery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
-    <script>
-    $.material.init();
-    </script>
-  </head>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
+        <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
+        <script src="/bower_components/knockout/dist/knockout.js"></script>
+        <script src="/js/viewModels/search.js"></script>
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+        <script>
+        $.material.init();
+        </script>
+    </head>
+
     <body class="fuelux">
         <div class="navbar navbar-fixed-top">
         <div class="navbar-header">
@@ -29,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="javascript:void(0)">IPS</a>
+            <a class="navbar-brand" href="#">IPS</a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <form class="navbar-form navbar-left">
@@ -37,104 +38,104 @@
             </form>
         </div>
     </div>
-<div class="wizard" data-initialize="wizard" id="myWizard">
-  <ul class="steps">
-    <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
-    <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
-    <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
-    <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
-  </ul>
-  <div class="actions">
-    <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
-    <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
-  </div>
-  <div class="step-content">
-    <div class="step-pane active sample-pane alert" data-step="1">
-          <form class="form-horizontal">
-        <fieldset>
-            <legend></legend>
-        <div class="form-group">
-            <input class="form-control floating-label" id="focusedInput" type="text" placeholder="Write something to make the label float">
+
+    <div class="wizard" data-initialize="wizard" id="myWizard">
+        <ul class="steps">
+            <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
+            <li data-step="2"><span class="badge">2</span>Current Schooling<span class="chevron"></span></li>
+            <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
+            <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
+        </ul>
+        <div class="actions">
+            <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
+            <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
         </div>
-        <div class="form-group">
-        <input class="form-control floating-label" id="focusedInput" type="text" placeholder="First Name">
-        </div>
-        <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Checkbox
-                    </label>
-                </div>
-                <br>
-                <div class="togglebutton">
-                    <label>
-                        <input type="checkbox" checked=""> Toggle button
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputFile" class="col-lg-2 control-label">File</label>
-            <div class="col-lg-10">
-                <input type="text" readonly="" class="form-control floating-label" placeholder="Browse...">
-                <input type="file" id="inputFile" multiple="">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-            <div class="col-lg-10">
-                <textarea class="form-control" rows="3" id="textArea"></textarea>
-                <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-lg-2 control-label">Radios</label>
-            <div class="col-lg-10">
-                <div class="radio radio-primary">
-                    <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                        Option one is this
-                    </label>
-                </div>
-                <div class="radio radio-primary">
-                    <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        Option two can be something else
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="select" class="col-lg-2 control-label">Selects</label>
-            <div class="col-lg-10">
-                <select class="form-control" id="select">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-                <br>
-                <select multiple="" class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <button class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </fieldset>
-</form> 
+        <div class="step-content">
+            <div class="step-pane active sample-pane alert" data-step="1">
+                <form class="form-horizontal">
+                    <fieldset>
+                    <legend></legend>
+                    <div class="form-group">
+                        <input class="form-control floating-label" id="focusedInput" type="text" placeholder="Write something to make the label float">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control floating-label" id="focusedInput" type="text" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Checkbox
+                                </label>
+                            </div>
+                            <br>
+                            <div class="togglebutton">
+                                <label>
+                                    <input type="checkbox" checked=""> Toggle button
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFile" class="col-lg-2 control-label">File</label>
+                        <div class="col-lg-10">
+                            <input type="text" readonly="" class="form-control floating-label" placeholder="Browse...">
+                            <input type="file" id="inputFile" multiple="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" rows="3" id="textArea"></textarea>
+                            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Radios</label>
+                        <div class="col-lg-10">
+                            <div class="radio radio-primary">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Option one is this
+                                </label>
+                            </div>
+                            <div class="radio radio-primary">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    Option two can be something else
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="select" class="col-lg-2 control-label">Selects</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                            <br>
+                            <select multiple="" class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form> 
     </div>
     <div class="step-pane sample-pane bg-info alert" data-step="2">
       <h4>Choose Recipients</h4>
