@@ -7,7 +7,7 @@
 var app = require('./app');
 var debug = require('debug')('indy-civ-hack');
 var http = require('http');
-var a = 1
+var a = 1;
 
 
 /**
