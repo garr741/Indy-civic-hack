@@ -28,3 +28,7 @@ a {
 	align-items:center;
 	justify-content:center;
 }
+
+form {
+	text-align: left;
+}
