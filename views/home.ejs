@@ -21,7 +21,7 @@
       $.material.init();
     </script>
   </head>
-  <body>
+  <body style="background-image:url('images/bg.jpg'); background-size:cover;">
     <div class="navbar navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -34,15 +34,15 @@
             <a class="navbar-brand" href="/status">Application Status</a>
             <a class="navbar-brand" href="/teacher">Teacher Recommendations</a>
         </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <form class="navbar-form navbar-center">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
-            </form>
-        </div>
     </div>
-    <h1>Hello There!</h1>
-    <h3> welcome to the online application manager for Indiana Public Schools Magnet Programs! From here, you can create a new application, update an existing one, check on the status of your application, and submit teacher recommendation forms. Please select from the navigation bar the option that applies to you.</h3>
-      	
-        /admin, /teacher, /apply
+    <div id="content">
+    <div>
+    <h1>Welcome to the IPS Magnet Program!</h1>
+    <h3>What would you like to do?<br><br>
+    <button onclick="window.location='/apply'" class="btn btn-primary">create a new application</button>
+    <br><button  onclick="window.location='/apply'" class="btn btn-primary">update an existing application</button> <br>
+    <button  onclick="window.location='/status'" class="btn btn-primary">check on the status of your application</button><br><button  onclick="window.location='/teacher'" class="btn btn-primary">submit a teacher recommendation form</button></h3>
+    </div>
+    </div>
   </body>
 </html>
