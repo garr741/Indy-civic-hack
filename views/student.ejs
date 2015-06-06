@@ -1,11 +1,16 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/knockout/dist/knockout.js"></script>
+    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
     <script src="/js/viewModels/student.js"></script>
     <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
@@ -17,6 +22,20 @@
     </script>
   </head>
     <body class="fuelux">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">IPS</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <form class="navbar-form navbar-left">
+                <input type="text" class="form-control col-lg-8" placeholder="Search">
+            </form>
+        </div>
 <div class="wizard" data-initialize="wizard" id="myWizard">
   <ul class="steps">
     <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
@@ -42,7 +61,6 @@
       <h1>Welcome back!</h1>
       <h1>We just need a couple details to login you back in:</h1>
       <div class="input-group-lg">
-        <span class="input-group-addon" id="basic-addon1">@</span>
         <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
         <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
         <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); }">Yes</button>
