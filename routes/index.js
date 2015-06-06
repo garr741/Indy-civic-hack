@@ -24,7 +24,7 @@ router.post('/submitForm', function(req, res, next){
 		"studentHasIEP": req.body.studentHasIEP,
 		"currentGrade": req.body.currentGrade,
 		"currentSchool": req.body.currentSchool,
-		"parentLast": req.body.parentLast, 
+		"parentLast": req.body.parentLast,
 		"parentFirst": req.body.parentFirst,
 		"parentPhone": req.body.parentPhone,
 		"parentEmail": req.body.parentEmail,
@@ -40,14 +40,27 @@ router.post('/submitForm', function(req, res, next){
 	res.status(200).send();
 });
 
+
 router.post('/search', function(req, res, next){
-	// change the "firstName" to be selected to whatever the filter-type is (req.body.filter-type)???
-	// collection.find({ req.body.filterType: req.body.query }, function(err, result){
-	// 	if (err){console.log(err)};
-	// 	res.send(result);
-	// });
-	res.status(204);
+  console.log("here");
+  search(req.body.filterType,req.body.query,function(err,result){
+    if(err){
+      res.status(404)
+    } else {
+    res.json(result).send()
+  }
+  });
 });
+
+
+function search(filterType,query,callback){
+  collection.find({ filterType:query}).toArray(function(err,result){
+    callback(err,result);
+  });
+
+}
+
+
 
 router.get('/admin', function(req, res, next) {
   res.render('admin');
