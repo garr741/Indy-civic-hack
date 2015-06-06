@@ -7,9 +7,18 @@ a {
   color: #00B7FF;
 }
 
+#content {
+	text-align:center;
+	display:flex;
+	height:100%;
+	align-items:center;
+	justify-content:center;
+}
+
 #myWizard {
 	height:100%;
 	color:#020202;
+	margin-top:20px;
 }
 
 .step-content {

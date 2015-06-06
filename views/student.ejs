@@ -1,16 +1,16 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material-fullpalette.css">
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/ripples.css">
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/roboto.css"> -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/knockout/dist/knockout.js"></script>
-    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <!--<script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>-->
     <script src="/js/viewModels/student.js"></script>
     <!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
@@ -36,6 +36,42 @@
                 <input type="text" class="form-control col-lg-8" placeholder="Search">
             </form>
         </div>
+    </div>
+    <!-- ko ifnot: loadWizard -->
+    <div id = "content">
+      <!-- ko if: onPageZero -->
+      <div>
+        <h1>Welcome to the IPS magnet application!</h1>
+        <h1>Have you already starting your application?</h1>
+        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(1); }">Yes</button>
+        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(2); }">No</button>
+      </div>
+      <!-- /ko -->
+      <!-- ko if: onPageOne -->
+      <div>
+        <h1>Welcome back!</h1>
+        <h1>We just need a couple details to login you back in:</h1>
+        <div class="input-group-lg">
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+          <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); startWizard(); }">Yes</button>
+        </div>
+      </div>
+      <!-- /ko -->
+      <!-- ko if: onPageTwo -->
+      <div>
+        <h1>Cool, let's get started!</h1>
+        <h1>We just need a couple details to login you back in:</h1>
+        <div class="input-group-lg">
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+          <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); startWizard(); }">Yes</button>
+        </div>
+      </div>
+      <!-- /ko -->
+    </div>
+    <!-- /ko -->
+<!-- ko if: loadWizard -->
 <div class="wizard" data-initialize="wizard" id="myWizard">
   <ul class="steps">
     <li data-step="1" data-name="campaign" class="active"><span class="badge">1</span>Student Information<span class="chevron"></span></li>
@@ -43,41 +79,11 @@
     <li data-step="3" data-name="template"><span class="badge">3</span>Parent Information<span class="chevron"></span></li>
     <li data-step="4" data-name="template"><span class="badge">3</span>Program Selection<span class="chevron"></span></li>
   </ul>
-  <div class="actions">
+  <!-- <div class="actions">
     <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
     <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button>
-  </div>
+  </div> -->
   <div class="step-content">
-    <!-- ko if: onPageZero -->
-    <div class="">
-      <h1>Welcome to the IPS magnet application!</h1>
-      <h1>Have you already starting your application?</h1>
-      <button type="button" class="btn btn-default" data-bind="click: function() { toPage(1); }">Yes</button>
-      <button type="button" class="btn btn-default" data-bind="click: function() { toPage(2); }">No</button>
-    </div>
-    <!-- /ko -->
-    <!-- ko if: onPageOne -->
-    <div>
-      <h1>Welcome back!</h1>
-      <h1>We just need a couple details to login you back in:</h1>
-      <div class="input-group-lg">
-        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); }">Yes</button>
-      </div>
-    </div>
-    <!-- /ko -->
-    <!-- ko if: onPageTwo -->
-    <div>
-      <h1>Cool, let's get started!</h1>
-      <h1>We just need a couple details to login you back in:</h1>
-      <div class="input-group-lg">
-        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-        <button type="button" class="btn btn-default" data-bind="click: function() { toPage(3); }">Yes</button>
-      </div>
-    </div>
-    <!-- /ko -->
     <!-- ko if: onPageThree -->
     <div>
       <h1></h1>
@@ -86,13 +92,94 @@
         <input type="text" class="form-control" placeholder="First Name">
         <input type="text" class="form-control" placeholder="Last Name">
         <input type="text" class="form-control" placeholder="Birthday">
+        <div class="input-group">
+  <input class="form-control" id="myDatepickerInput" type="text"/>
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      <span class="glyphicon glyphicon-calendar"></span>
+      <span class="sr-only">Toggle Calendar</span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right datepicker-calendar-wrapper" role="menu">
+      <div class="datepicker-calendar">
+        <div class="datepicker-calendar-header">
+          <button type="button" class="prev"><span class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous Month</span></button>
+          <button type="button" class="next"><span class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next Month</span></button>
+          <button type="button" class="title">
+              <span class="month">
+                <span data-month="0">January</span>
+                <span data-month="1">February</span>
+                <span data-month="2">March</span>
+                <span data-month="3">April</span>
+                <span data-month="4">May</span>
+                <span data-month="5">June</span>
+                <span data-month="6">July</span>
+                <span data-month="7">August</span>
+                <span data-month="8">September</span>
+                <span data-month="9">October</span>
+                <span data-month="10">November</span>
+                <span data-month="11">December</span>
+              </span> <span class="year"></span>
+          </button>
+        </div>
+        <table class="datepicker-calendar-days">
+          <thead>
+          <tr>
+            <th>Su</th>
+            <th>Mo</th>
+            <th>Tu</th>
+            <th>We</th>
+            <th>Th</th>
+            <th>Fr</th>
+            <th>Sa</th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="datepicker-calendar-footer">
+          <button type="button" class="datepicker-today">Today</button>
+        </div>
+      </div>
+      <div class="datepicker-wheels" aria-hidden="true">
+        <div class="datepicker-wheels-month">
+          <h2 class="header">Month</h2>
+          <ul>
+            <li data-month="0"><button type="button">Jan</button></li>
+            <li data-month="1"><button type="button">Feb</button></li>
+            <li data-month="2"><button type="button">Mar</button></li>
+            <li data-month="3"><button type="button">Apr</button></li>
+            <li data-month="4"><button type="button">May</button></li>
+            <li data-month="5"><button type="button">Jun</button></li>
+            <li data-month="6"><button type="button">Jul</button></li>
+            <li data-month="7"><button type="button">Aug</button></li>
+            <li data-month="8"><button type="button">Sep</button></li>
+            <li data-month="9"><button type="button">Oct</button></li>
+            <li data-month="10"><button type="button">Nov</button></li>
+            <li data-month="11"><button type="button">Dec</button></li>
+          </ul>
+        </div>
+        <div class="datepicker-wheels-year">
+          <h2 class="header">Year</h2>
+          <ul></ul>
+        </div>
+        <div class="datepicker-wheels-footer clearfix">
+          <button type="button" class="btn datepicker-wheels-back"><span class="glyphicon glyphicon-arrow-left"></span><span class="sr-only">Return to Calendar</span></button>
+          <button type="button" class="btn datepicker-wheels-select">Select <span class="sr-only">Month and Year</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         <input type="text" class="form-control" placeholder="Gender">
         <input type="text" class="form-control" placeholder="Ethnicity">
         <button type="button" class="btn btn-default" data-bind="click: function() { toPage(2); }">Yes</button>
       </div>
     </div>
     <!-- /ko -->
+    <!-- <button type="button" class="btn btn-default btn-prev"><span class="glyphicon glyphicon-arrow-left"></span>Prev</button>
+    <button type="button" class="btn btn-default btn-next" data-last="Complete">Next<span class="glyphicon glyphicon-arrow-right"></span></button> -->
   </div>
+</div>
+  <!-- /ko -->
 
 </div>
   <script>

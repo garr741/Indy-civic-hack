@@ -3,6 +3,7 @@ function Student() {
 	self.firstName = ko.observable("");
 	self.lastName = ko.observable("");
 	self.page = ko.observable(0);
+	self.loadWizard = ko.observable(false);
 	self.onPageZero = ko.computed(function() {
 		return self.page() == 0;
 	}, this);
@@ -15,6 +16,9 @@ function Student() {
 	self.onPageThree = ko.computed(function() {
 		return self.page() == 3;
 	}, this);
+	self.startWizard = function() {
+		self.loadWizard(true);
+	}
 	self.toPage = function(page) {
 		self.page(page);
 	}
