@@ -22,4 +22,8 @@ router.get('/apply', function(req, res, next) {
   res.render('student');
 });
 
+router.get('/status', function(req, res, next) {
+  res.render('status');
+});
+
 module.exports = router;
