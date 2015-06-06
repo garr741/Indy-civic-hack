@@ -1,23 +1,39 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap-material-design/dist/css/material.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
     <script src="/bower_components/knockout/dist/knockout.js"></script>
     <script src="/js/viewModels/student.js"></script>
     <script>
     $.material.init();
     </script>
   </head>
-  <body>
-  	<div id="application">
-      <div class="form-control-wrapper">
-        <input type="text" class="form-control" data-bind="value: firstName">
-        <div class="floating-label">First Name</div>
-        <span class="material-input"></span>
+  <body> 
+    <!-- ko if: onPageZero -->
+    <div>
+      <h1>Welcome to the IPS magnet application!</h1>
+      <h1>Have you already starting your application?</h1>
+      <button type="button" class="btn btn-default" data-bind="click: toPageOne">Yes</button>
+      <button type="button" class="btn btn-default">No</button>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: onPageOne -->
+    <div>
+      <h1>Welcome back!</h1>
+      <h1>We just need a couple details to login you back in:</h1>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
       </div>
-    <p>Student Information:
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+      </div>
+      <button type="button" class="btn btn-default">Next</button>
+    </div>
+    <!-- /ko -->
+    <!--<p>Student Information:
 	<p>Student Name
 		<p>fist name
 		<p>last name
@@ -35,7 +51,7 @@
 		<p>race (dropdown)
     <p>Current Program
 	<p>Current School (dropdown)
-	<p>Grade (dropdown)
+	<p>Grade (dropdown)-->
   	</div>
   </body>
   <script>
