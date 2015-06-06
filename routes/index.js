@@ -14,7 +14,7 @@ router.post('/submitForm', function(req, res, next){
 		"firstName": req.body.firstName,
 		"lastName": req.body.lastName,
 		"studentAddress": req.body.studentAddress,
-		"birthDate": req.body.birthDate
+		"birthDate": req.body.birthDate,
 		"street": req.body.street,
 		"city": req.body.city,
 		"state": req.body.state,
