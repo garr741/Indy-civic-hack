@@ -11,7 +11,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap-material-design/dist/js/material.js"></script>
     <script src="/bower_components/knockout/dist/knockout.js"></script>
-    <script src="/js/viewModels/search.js"></script>
+    <script src="/js/viewModels/stats.js"></script>
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -37,9 +37,11 @@
             </form>
         </div>
     </div>
-  </body>
+    <div style="height:200px"></div>
+    <span data-bind="text: firstName"></span>
   <script>
-  	var status = new Status();
-  	ko.applyBindings(status);
+    var stats = new Stats();
+    ko.applyBindings(stats);
   </script>
+  </body>
 </html>
