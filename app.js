@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoURL = process.env.MONGOLAB_URI || "mongodb://person:test@ds041992.mongolab.com:41992/ips";
-var collection = require('mongoskin').db(mongoURL).collection("waiters")
+var collection = require('mongoskin').db(mongoURL).collection("test")
 
 var routes = require('./routes/index');
 
@@ -46,10 +46,6 @@ if (app.get('env') === 'development') {
     });
   });
 }
-
-app.post('/submitForm', function(req, res){
-  res.status(200).send(req.body.firstName);
-});
 
 // production error handler
 // no stacktraces leaked to user
